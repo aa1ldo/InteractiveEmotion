@@ -1,3 +1,5 @@
+-> start
+
 ===start===
 Oh me, oh my. What a sad, sad life.
 Nothing ever goes my way...
@@ -70,14 +72,6 @@ I just want you to guide them back into these fences!
     Come back when all goats are back in their pens!
         +++ [I will. (Exit)] -> Exit
 
-===BriefExplainationRepeated===
-You can move goats by going near them.
-They are easily scared, so approach carefully!
-I just want you to guide them back into these fences!
-Come back when all goats are back in their pens!
--> Exit
-
 ===Exit===
 Goodbye.
-VAR talked_to_farmer = true
 -> END
