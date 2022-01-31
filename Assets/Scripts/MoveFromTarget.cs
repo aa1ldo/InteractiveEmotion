@@ -7,7 +7,7 @@ public class MoveFromTarget : MonoBehaviour
     [SerializeField] private Transform target;
     private Rigidbody rb;
     private bool playerInRange;
-    [SerializeField] private float goatSpeed = -8f;
+    [SerializeField] private float goatSpeed = -200f;
 
     void Start()
     {
@@ -20,7 +20,7 @@ public class MoveFromTarget : MonoBehaviour
         if (playerInRange)
         {
             rb.transform.LookAt(new Vector3(target.position.x, transform.position.y, target.position.z));
-            rb.AddForce(transform.forward * goatSpeed);
+            rb.AddForce(transform.forward * goatSpeed * Time.deltaTime, ForceMode.Impulse);
         }
         else
         {

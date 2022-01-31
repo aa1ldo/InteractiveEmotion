@@ -23,7 +23,6 @@ public class DialogueManager : MonoBehaviour
     [SerializeField] private GameObject continueIcon;
     [SerializeField] private TextMeshProUGUI dialogueText;
     [SerializeField] private TextMeshProUGUI displayNameText;
-    [SerializeField] private Animator portraitAnimator;
     private Animator layoutAnimator;
 
     [Header("Choices UI")]
@@ -40,7 +39,6 @@ public class DialogueManager : MonoBehaviour
     private static DialogueManager instance;
 
     private const string SPEAKER_TAG = "speaker";
-    private const string PORTRAIT_TAG = "portrait";
     private const string LAYOUT_TAG = "layout";
 
     private DialogueVariables dialogueVariables;
@@ -106,7 +104,6 @@ public class DialogueManager : MonoBehaviour
 
         // reset portrait, layout and speaker
         displayNameText.text = "???";
-        portraitAnimator.Play("default");
         layoutAnimator.Play("right");
 
         ContinueStory();
@@ -158,7 +155,7 @@ public class DialogueManager : MonoBehaviour
         foreach (char letter in line.ToCharArray())
         {
             // if the submit button is pressed, finish up displaying the line right away
-            if (Input.GetKeyDown(KeyCode.Space))
+            if (Input.GetKeyDown(KeyCode.Return))
             {
                 dialogueText.text = line;
                 break;
@@ -211,9 +208,6 @@ public class DialogueManager : MonoBehaviour
             {
                 case SPEAKER_TAG:
                     displayNameText.text = tagValue;
-                    break;
-                case PORTRAIT_TAG:
-                    portraitAnimator.Play(tagValue);
                     break;
                 case LAYOUT_TAG:
                     layoutAnimator.Play(tagValue);
